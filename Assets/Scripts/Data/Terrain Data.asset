@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b7dee463bfce374f85822b08458ccbc, type: 3}
+  m_Name: Terrain Data
+  m_EditorClassIdentifier: 
+  autoUpdate: 0
+  octaves: 0
+  persistance: 0
+  lacunarity: 0
+  meshHeightMultiplier: 30
+  meshHeightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.007987976
+      value: -0.27322388
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.2242617
+      value: 0.08397849
+      inSlope: 1.6122916
+      outSlope: 1.6122916
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.2861247
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.53541154
+      value: 0.29893428
+      inSlope: 1.1372689
+      outSlope: 1.1372689
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7335103
+      value: 0.75752103
+      inSlope: 1.788825
+      outSlope: 1.788825
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.89215297
+      value: 1.0046107
+      inSlope: 1.845341
+      outSlope: 1.845341
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0075891
+      value: 1.1711648
+      inSlope: 3.053343
+      outSlope: 3.053343
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.4285136
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  colorGradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 0.294147, b: 1, a: 1}
+    key1: {r: 0, g: 0.294147, b: 1, a: 1}
+    key2: {r: 0, g: 1, b: 0.121106625, a: 1}
+    key3: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+    key4: {r: 1, g: 1, b: 1, a: 1}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 20644
+    ctime2: 28377
+    ctime3: 42205
+    ctime4: 57015
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 20644
+    atime2: 28377
+    atime3: 42205
+    atime4: 57015
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 5
+    m_NumAlphaKeys: 5
+  Regions:
+  - name: Grass
+    height: 0.87
+    color: {r: 1, g: 1, b: 1, a: 1}
+  - name: Grass
+    height: 0.644
+    color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+  - name: Grass
+    height: 0.433
+    color: {r: 0, g: 1, b: 0.121106625, a: 1}
+  - name: Grass
+    height: 0.315
+    color: {r: 0, g: 0.294147, b: 1, a: 1}
+  - name: Grass
+    height: 0
+    color: {r: 0, g: 0.294147, b: 1, a: 1}
