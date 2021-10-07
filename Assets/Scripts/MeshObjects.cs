@@ -41,6 +41,7 @@ public class MeshObjects : MonoBehaviour
         for(int i = 0; i< amountToSpawn; i++)
         {
             GameObject obj = Instantiate(assets[Random.Range(0,assets.Count)], verticesPos[Random.Range(0, verticesPos.Count)], Quaternion.identity);
+            obj.transform.localScale = new Vector3(100,100,100);
             obj.transform.parent = terrainMesh.transform;
         }
     }
