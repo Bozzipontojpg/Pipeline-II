@@ -34,15 +34,21 @@ public class MeshObjects : MonoBehaviour
 
         foreach(var v in  vertices)
         {
-            verticesPos.Add(GetVertexWorldPosition(v, terrainMesh.transform));
+            if(GetVertexWorldPosition(v, terrainMesh.transform).y > -3100f)
+            {
+                verticesPos.Add(GetVertexWorldPosition(v, terrainMesh.transform));
+            }
+            
         }
         
 
         for(int i = 0; i< amountToSpawn; i++)
         {
-            GameObject obj = Instantiate(assets[Random.Range(0,assets.Count)], verticesPos[Random.Range(0, verticesPos.Count)], Quaternion.identity);
-            obj.transform.localScale = new Vector3(100,100,100);
+            GameObject obj = Instantiate(assets[Random.Range(0,assets.Count)], verticesPos[Random.Range(0, verticesPos.Count)], new Quaternion(-90,0,0,0));
+            //obj.transform.localScale = new Vector3(100,100,100);
+            obj.transform.rotation = Quaternion.LookRotation(transform.forward, transform.up);
             obj.transform.parent = terrainMesh.transform;
+            
         }
     }
 
