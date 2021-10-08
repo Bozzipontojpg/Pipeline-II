@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Terrain Data
   m_EditorClassIdentifier: 
   autoUpdate: 0
-  octaves: 0
-  persistance: 0
-  lacunarity: 0
-  meshHeightMultiplier: 30
+  octaves: 3
+  persistance: 0.18
+  lacunarity: 0.78
+  meshHeightMultiplier: 5000
   meshHeightCurve:
     serializedVersion: 2
     m_Curve:

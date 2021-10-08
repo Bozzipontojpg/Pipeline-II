@@ -11,7 +11,8 @@ public class MapGenerator : MonoBehaviour
         NoiseMap,
         ColourMap,
         TopographicMap,
-        Mesh
+        Mesh,
+        TextureMesh,
     }
 
     public DrawMode drawMode;
@@ -34,6 +35,10 @@ public class MapGenerator : MonoBehaviour
     public bool terrainDataFoldout;
     
     public bool textureFilter;
+    public TextureData textureData;
+
+    public Material terrainMaterial;
+    public Material normalMaterial;
 
     public bool autoUpdate;
 
@@ -50,25 +55,42 @@ public class MapGenerator : MonoBehaviour
     public void DrawMapInEditor()
     {
         MapData mapData = GenerateMapData();
-        
+
+
+        float minHeight = terrainData.meshHeightMultiplier * terrainData.meshHeightCurve.Evaluate(0);
+        float maxHeight = terrainData.meshHeightMultiplier * terrainData.meshHeightCurve.Evaluate(1);
+
+        Debug.Log(minHeight);
+
+        Debug.Log(maxHeight);
+        textureData.UpdateMeshHeights(terrainMaterial, minHeight*1.5f, maxHeight);
+
+        textureData.ApplyToMaterial(terrainMaterial);
+
+
         MapDisplay display = FindObjectOfType<MapDisplay>();
         if (drawMode == DrawMode.NoiseMap)
         {
-            display.DrawTexture(TextureGenerator.TextureFromHeightMap(mapData.heightMap, textureFilter));
+            display.DrawTexture(TextureGenerator.TextureFromHeightMap(mapData.heightMap, textureFilter),normalMaterial);
         }
         else if (drawMode == DrawMode.ColourMap)
         {
-            display.DrawTexture(TextureGenerator.TextureFromColorMap(mapData.colorMap,mapChunkSize,mapChunkSize, textureFilter, blur));
+            display.DrawTexture(TextureGenerator.TextureFromColorMap(mapData.colorMap,mapChunkSize,mapChunkSize, textureFilter, blur),normalMaterial);
         }
         else if (drawMode == DrawMode.TopographicMap)
         {
             display.DrawMesh(MeshGenerator.GenerateTerrainMesh(mapData.heightMap, terrainData.meshHeightMultiplier, terrainData.meshHeightCurve, levelOfDetail),
-                TextureGenerator.TextureFromColorMap(mapData.topoMap, mapChunkSize, mapChunkSize, textureFilter, blur));
+                TextureGenerator.TextureFromColorMap(mapData.topoMap, mapChunkSize, mapChunkSize, textureFilter, blur),normalMaterial);
         }
         else if (drawMode == DrawMode.Mesh)
         {
             display.DrawMesh(MeshGenerator.GenerateTerrainMesh(mapData.heightMap, terrainData.meshHeightMultiplier, terrainData.meshHeightCurve, levelOfDetail),
-                TextureGenerator.TextureFromColorMap(mapData.colorMap, mapChunkSize, mapChunkSize, textureFilter, blur));
+                TextureGenerator.TextureFromColorMap(mapData.colorMap, mapChunkSize, mapChunkSize, textureFilter, blur),normalMaterial);
+        }
+        else if(drawMode == DrawMode.TextureMesh)
+        {
+            display.DrawMeshTexture(MeshGenerator.GenerateTerrainMesh(mapData.heightMap, terrainData.meshHeightMultiplier, terrainData.meshHeightCurve, levelOfDetail),terrainMaterial);
+            
         }
     }
 
